@@ -490,6 +490,9 @@ ISR(TIMER0_COMPA_vect) {
   nextPwm = (u0>>2)+0x80;
 }
 
+// setup() adapted from http://www.technoblogy.com/show?QBB
+// http://www.technoblogy.com/list?QFO
+// CC BY 4.0 David Johnson-Davies
 void setup() {
   // Enable 64 MHz PLL and use as source for Timer1
   PLLCSR = 1<<PCKE | 1<<PLLE;
