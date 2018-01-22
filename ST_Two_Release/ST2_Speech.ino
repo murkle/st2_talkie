@@ -378,6 +378,12 @@ void talkieEnd() {
 }
 */
 
+// crude vesion for when Timer 1 isn't available for delay()
+// adjust 23 as needed
+void myDelay(unsigned long millis) {
+  for (volatile unsigned long i = 23 * millis; i != 0; i--);
+}
+
 void talkieSay(uint8_t* addr) {
   uint8_t energy;
 
@@ -428,7 +434,7 @@ void talkieSay(uint8_t* addr) {
         }
       }
     }
-    delay(25);
+    myDelay(25);
   } while (energy != 0xf);
 }
 
